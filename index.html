@@ -491,9 +491,9 @@ main,header,footer{position:relative;z-index:var(--z-body)}
 .case:hover{transform:translate(-3px,-5px);box-shadow:11px 13px 0 var(--cyan-d)}
 .case.wide{grid-column:span 1}
 @media (min-width:1000px){.case.wide{grid-column:span 2}}
-.case-art{position:relative;aspect-ratio:16/10;border-bottom:var(--frame) solid var(--ink);overflow:hidden;background:var(--paper-2)}
+.case-art{display:block;position:relative;aspect-ratio:16/10;border-bottom:var(--frame) solid var(--ink);overflow:hidden;background:var(--paper-2);cursor:pointer;text-decoration:none}
 .case-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s var(--e-quart)}
-.case:hover .case-art img{transform:scale(1.05)}
+.case-art:hover img,.case:hover .case-art img{transform:scale(1.05)}
 .case-art svg{position:absolute;inset:0;width:100%;height:100%}
 .case-art .cap{position:absolute;left:0;top:0;background:var(--ink);color:var(--paper);font-family:var(--pixel);font-size:.625rem;letter-spacing:.12em;padding:5px 9px}
 .rank{
@@ -528,6 +528,47 @@ main,header,footer{position:relative;z-index:var(--z-body)}
 .empty p{margin-top:var(--s3);color:var(--ink-2);font-size:.9375rem;margin-inline:auto;max-width:44ch}
 .empty button{margin-top:var(--s5);font-family:var(--pixel);font-size:.6875rem;letter-spacing:.1em;border-bottom:2px solid var(--vermillion);padding-bottom:3px}
 .more{display:flex;justify-content:center;margin-top:var(--s7)}
+
+/* ==========================================================================
+   INSTAGRAM REELS & ADS VAULT
+   ========================================================================== */
+.sec-reels{background:var(--paper-2);border-top:var(--frame) solid var(--ink);border-bottom:var(--frame) solid var(--ink)}
+.sec-reels .bg-layer{--dotc:oklch(20.5% .022 62 / .14);--dotsz:8px}
+.insta-channel-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s4);background:var(--paper);border:var(--frame) solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:var(--s4) var(--s5);margin-bottom:var(--s6)}
+.insta-profile-info{display:flex;align-items:center;gap:var(--s4)}
+.insta-avatar{width:52px;height:52px;border-radius:50%;border:3px solid var(--ink);padding:2px;background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);display:grid;place-items:center;flex-shrink:0}
+.insta-avatar svg{width:26px;height:26px;color:#fff}
+.insta-meta h3{font-family:var(--poster);font-size:1.35rem;letter-spacing:.02em;margin:0;line-height:1.1;display:flex;align-items:center;gap:8px}
+.insta-meta h3 .badge-verified{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:#0095f6;border-radius:50%;color:#fff}
+.insta-meta p{font-family:var(--pixel);font-size:.6875rem;letter-spacing:.08em;color:var(--ink-3);margin-top:3px}
+.insta-tags{display:flex;gap:6px;flex-wrap:wrap}
+.insta-tag{font-family:var(--pixel);font-size:.625rem;letter-spacing:.06em;background:var(--paper-2);border:2px solid var(--ink);padding:3px 8px}
+.reels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:var(--s5)}
+.reel-card{position:relative;background:var(--paper);border:var(--frame) solid var(--ink);box-shadow:7px 7px 0 var(--ink);display:flex;flex-direction:column;overflow:hidden;transition:transform .35s var(--e-expo),box-shadow .35s var(--e-expo)}
+.reel-card:hover{transform:translate(-3px,-5px);box-shadow:11px 13px 0 var(--vermillion)}
+.reel-screen{display:block;position:relative;aspect-ratio:9/15;background:#050505;overflow:hidden;border-bottom:var(--frame) solid var(--ink);cursor:pointer;text-decoration:none}
+.reel-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s var(--e-quart)}
+.reel-screen:hover img,.reel-card:hover .reel-screen img{transform:scale(1.05)}
+.reel-badge-top{position:absolute;top:10px;left:10px;z-index:2;font-family:var(--pixel);font-size:.5625rem;letter-spacing:.1em;background:var(--ink);color:var(--paper);padding:4px 7px;border:1px solid var(--paper)}
+.reel-badge-type{position:absolute;top:10px;right:10px;z-index:2;font-family:var(--poster);font-size:.75rem;letter-spacing:.04em;background:var(--vermillion);color:var(--paper);padding:3px 8px;transform:rotate(3deg);border:2px solid var(--ink)}
+.reel-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,transparent 40%,rgba(0,0,0,0.6) 100%);pointer-events:none}
+.reel-play-icon{width:50px;height:50px;border-radius:50%;background:rgba(20,20,20,0.75);border:2px solid rgba(255,255,255,0.85);color:#fff;display:grid;place-items:center;backdrop-filter:blur(4px);transition:transform .3s var(--e-expo),background .3s}
+.reel-card:hover .reel-play-icon{transform:scale(1.15);background:var(--vermillion);border-color:var(--ink)}
+.reel-play-icon svg{width:22px;height:22px;margin-left:3px}
+.reel-screen-crt{position:absolute;inset:0;pointer-events:none;background:linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,0.25) 50%),linear-gradient(90deg,rgba(255,0,0,0.04),rgba(0,255,0,0.02),rgba(0,0,255,0.04));background-size:100% 4px,6px 100%;opacity:.6}
+.reel-card-body{padding:var(--s4);display:flex;flex-direction:column;gap:var(--s2);flex:1}
+.reel-card-body h3{font-family:var(--poster);text-transform:uppercase;font-size:1.2rem;line-height:.98}
+.reel-card-body p{font-size:.8125rem;color:var(--ink-2);line-height:1.35}
+.reel-card-foot{margin-top:auto;padding-top:var(--s3);border-top:2px solid var(--paper-3);display:flex;align-items:center;justify-content:space-between;gap:var(--s2)}
+.reel-stat-pill{font-family:var(--pixel);font-size:.625rem;letter-spacing:.08em;background:var(--mustard);border:2px solid var(--ink);padding:4px 7px}
+.reel-cta-btn{display:inline-flex;align-items:center;gap:5px;font-family:var(--pixel);font-size:.6875rem;letter-spacing:.08em;padding:6px 11px;background:var(--ink);color:var(--paper);border:2px solid var(--ink);text-decoration:none;transition:transform .2s,background .2s,color .2s}
+.reel-cta-btn:hover{background:var(--vermillion);color:var(--paper);transform:translate(-1px,-2px)}
+.reel-cta-btn svg{width:13px;height:13px}
+.reels-banner-cta{margin-top:var(--s7);background:var(--mustard);border:var(--frame) solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:var(--s6) var(--s5);display:flex;flex-direction:column;align-items:center;text-align:center;gap:var(--s4)}
+@media (min-width:820px){.reels-banner-cta{flex-direction:row;text-align:left;justify-content:space-between}}
+.reels-banner-cta h3{font-family:var(--poster);text-transform:uppercase;font-size:clamp(1.5rem,3.2vw,2.25rem);line-height:.95}
+.reels-banner-cta p{font-size:.9375rem;color:var(--ink-2);max-width:50ch;margin-top:6px}
+.reels-banner-actions{display:flex;gap:var(--s3);flex-wrap:wrap;flex-shrink:0}
 
 /* ==========================================================================
    PARTY REVIEWS
@@ -773,6 +814,7 @@ body.fx-off #bgc{opacity:.25}
         <li><a href="#tutorial">About</a></li>
         <li><a href="#powers">Services</a></li>
         <li><a href="#work">Projects</a></li>
+        <li><a href="#reels">Reels &amp; Ads</a></li>
         <li><a href="#voices">Reviews</a></li>
         <li><a href="#stats">Stats</a></li>
         <li><a href="#boss">Contact</a></li>
@@ -968,12 +1010,12 @@ body.fx-off #bgc{opacity:.25}
       <div class="cases" id="cases">
         <!-- 1. I-WAY Shopee (Featured Wide) -->
         <article class="case wide rv" data-cat="web">
-          <div class="case-art">
+          <a href="https://shop-seven-sage.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit I-WAY Shopee Live App">
             <img src="i_way_shopee_thumb.png" alt="I-WAY Shopee Web App Screenshot">
             <span class="cap">BOSS MISSION · E-COMMERCE</span>
             <span class="rank s">S</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>I-WAY Shopee — Premium E-Commerce</h3>
             <p>Vibrant, modern tech & fashion storefront. Features interactive category displays, shopping cart, instant product search, and high-speed responsive UI.</p>
@@ -990,12 +1032,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 2. EduFlow School ERP -->
         <article class="case rv" style="--i:1" data-cat="web">
-          <div class="case-art">
+          <a href="https://erp-shool-five.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit EduFlow School ERP Live App">
             <img src="erp_shool_thumb.png" alt="EduFlow School ERP Screenshot">
             <span class="cap">WEB APP · ERP PORTAL</span>
             <span class="rank s">S</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>EduFlow — School Management ERP</h3>
             <p>All-in-one educational ERP platform managing student records, attendance tracking, fee management, and administrative dashboards.</p>
@@ -1012,12 +1054,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 3. HOUSEN Real Estate -->
         <article class="case rv" style="--i:2" data-cat="web">
-          <div class="case-art">
+          <a href="https://real-estate-three-roan.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit HOUSEN Real Estate Live App">
             <img src="real_estate_thumb.png" alt="HOUSEN Real Estate Screenshot">
             <span class="cap">WEB APP · REAL ESTATE</span>
             <span class="rank s">S</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>HOUSEN — Real Estate Platform</h3>
             <p>Modern property search & listing portal with interactive location filters, property detail showcases, and direct agent booking flows.</p>
@@ -1034,12 +1076,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 4. GS Nepal Marketplace -->
         <article class="case rv" style="--i:3" data-cat="web">
-          <div class="case-art">
+          <a href="https://gsnepal.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit GS Nepal Live App">
             <img src="gsnepal_thumb.png" alt="GS Nepal B2B Marketplace Screenshot">
             <span class="cap">WEB APP · B2B MARKETPLACE</span>
             <span class="rank">A</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>GS Nepal — Wholesale Trading Portal</h3>
             <p>B2B wholesale marketplace web app connecting suppliers and buyers across Nepal with bulk ordering and product cataloging.</p>
@@ -1056,12 +1098,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 5. Shop Topaz -->
         <article class="case rv" style="--i:4" data-cat="web">
-          <div class="case-art">
+          <a href="https://shop2-topaz.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit iWay Shoppe Live App">
             <img src="shop2_topaz_thumb.png" alt="Shop Topaz E-Commerce Screenshot">
             <span class="cap">WEB APP · E-COMMERCE</span>
             <span class="rank">A</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>iWay Shoppe — Tech & Apparel</h3>
             <p>Sleek dark-themed online store for electronics, smart gear, and apparel with product filters and seamless checkout flow.</p>
@@ -1078,12 +1120,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 6. Royal Spice Restaurant -->
         <article class="case rv" style="--i:5" data-cat="web">
-          <div class="case-art">
+          <a href="https://resturant2-ivory.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit Royal Spice Live App">
             <img src="restaurant2_ivory_thumb.png" alt="Royal Spice Restaurant Screenshot">
             <span class="cap">WEB APP · RESTAURANT</span>
             <span class="rank">A</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>Royal Spice — Dining & Online Orders</h3>
             <p>Luxury restaurant web app featuring digital menus, chef recommendation section, table reservation, and online food ordering.</p>
@@ -1100,12 +1142,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 7. KTM Animation Restaurant -->
         <article class="case rv" style="--i:6" data-cat="web">
-          <div class="case-art">
+          <a href="https://ktm-animation-resturant.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit KTM Momos & Restaurant Live App">
             <img src="ktm_restaurant_thumb.png" alt="KTM Momos Restaurant Screenshot">
             <span class="cap">WEB APP · ANIMATED FOOD SITE</span>
             <span class="rank">A</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>KTM Momos & Restaurant</h3>
             <p>Interactive, animated food showcase web application highlighting signature dishes, special combos, and fast customer ordering.</p>
@@ -1122,12 +1164,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 8. Oryizon Company -->
         <article class="case rv" style="--i:7" data-cat="web">
-          <div class="case-art">
+          <a href="https://oryizon-company.vercel.app/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Visit Oryizon Corporate Live App">
             <img src="oryizon_company_thumb.png" alt="Oryizon Corporate Web App Screenshot">
             <span class="cap">WEB APP · CORPORATE SITE</span>
             <span class="rank">A</span>
             <span class="stamp">LIVE APP</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>Oryizon — Corporate Tech Agency</h3>
             <p>Enterprise corporate website showcasing software development services, agency portfolios, solutions architecture, and contact forms.</p>
@@ -1159,12 +1201,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 10. Nimbus Water Ad -->
         <article class="case rv" style="--i:9" data-cat="video">
-          <div class="case-art">
+          <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Watch Nimbus Water Ad Reel on Instagram">
             <img src="nimbus_ad_thumb.png" alt="Nimbus Water Ad Film">
             <span class="cap">AD FILM</span>
             <span class="rank s">S</span>
             <span class="stamp">Mission clear</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>Nimbus Water, 30s spot</h3>
             <p>Full AI pipeline: script, generated footage, Hindi voiceover, sound design. Ran on Reels and two mall screens in Kothrud.</p>
@@ -1174,12 +1216,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 11. Oryizon Product Commercial Reel -->
         <article class="case rv" style="--i:1" data-cat="video">
-          <div class="case-art">
+          <a href="https://www.instagram.com/p/Da762Ufu9gw/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Watch Oryizon Product Commercial Reel on Instagram">
             <img src="oryizon_ad_thumb.png" alt="Oryizon Product Ad Commercial Reel Screenshot">
             <span class="cap">PRODUCT AD FILM · REEL</span>
             <span class="rank s">S</span>
             <span class="stamp">INSTAGRAM REEL</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>Oryizon — Product Commercial Reel</h3>
             <p>AI-assisted product advertisement film for Oryizon organic product line. Scripted, voiced, animated, and edited for Instagram Reels campaign engagement.</p>
@@ -1196,12 +1238,12 @@ body.fx-off #bgc{opacity:.25}
 
         <!-- 12. Oryizon Organic Moringa Commercial Reel -->
         <article class="case rv" style="--i:2" data-cat="video">
-          <div class="case-art">
+          <a href="https://www.instagram.com/p/DZryD4UPXdZ/" target="_blank" rel="noopener noreferrer" class="case-art" aria-label="Watch Oryizon Organic Moringa Reel on Instagram">
             <img src="oryizon_ad_thumb2.png" alt="Oryizon Organic Moringa Commercial Reel Screenshot">
             <span class="cap">HEALTH & WELLNESS AD · REEL</span>
             <span class="rank s">S</span>
             <span class="stamp">INSTAGRAM REEL</span>
-          </div>
+          </a>
           <div class="case-body">
             <h3>Oryizon — Wellness Campaign Reel</h3>
             <p>100% Organic Moringa superfood product promotion commercial. AI script, professional presenter performance, and Hindi promotional voiceover.</p>
@@ -1227,6 +1269,173 @@ body.fx-off #bgc{opacity:.25}
         <button class="btn ghost" id="loadmore" type="button">Load 2 more missions
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
         </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INSTAGRAM REELS & ADS VAULT ================= -->
+  <section class="sec sec-reels" id="reels">
+    <div class="bg-layer dots" data-par="0.05" aria-hidden="true"></div>
+    <div class="shell">
+      <div class="sec-head">
+        <div>
+          <span class="stage-tag alt">INSTAGRAM REELS</span>
+          <h2 class="sec-title poster">AI Ads &amp;<br>Reels Vault</h2>
+        </div>
+        <p>Mai apne saare commercial AI ad films, client promo videos aur viral visual campaigns directly Instagram par upload karta hu. Explore real client ad reels, viral 9:16 video edits, aur behind-the-scenes below.</p>
+      </div>
+
+      <!-- Channel Marquee Bar -->
+      <div class="insta-channel-bar rv">
+        <div class="insta-profile-info">
+          <div class="insta-avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="insta-meta">
+            <h3>@creatoracademy264 <span class="badge-verified" title="Verified Creator" aria-label="Verified"><svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span></h3>
+            <p>CREATOR ACADEMY · OFFICIAL AI VIDEO HUB</p>
+          </div>
+        </div>
+        <div class="insta-tags">
+          <span class="insta-tag">VERTICAL 9:16</span>
+          <span class="insta-tag">AI SCRIPT &amp; CINEMATICS</span>
+          <span class="insta-tag">HINDI &amp; ENGLISH VO</span>
+        </div>
+        <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer" class="btn" style="padding:10px 18px;font-size:.8125rem;">
+          Open Instagram Reels
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="15" height="15" aria-hidden="true"><path d="M7 17L17 7M17 7H9m8 0v8"/></svg>
+        </a>
+      </div>
+
+      <!-- 4 Vertical Reel Cards -->
+      <div class="reels-grid">
+        <!-- Reel 1: Oryizon Organic Moringa -->
+        <article class="reel-card rv" style="--i:1">
+          <a href="https://www.instagram.com/p/DZryD4UPXdZ/" target="_blank" rel="noopener noreferrer" class="reel-screen" aria-label="Watch Oryizon Organic Moringa Reel on Instagram">
+            <img src="oryizon_ad_thumb2.png" alt="Oryizon Organic Moringa Wellness Commercial Reel">
+            <span class="reel-badge-top">REEL #01</span>
+            <span class="reel-badge-type">WELLNESS AD</span>
+            <div class="reel-play-overlay">
+              <span class="reel-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </span>
+            </div>
+            <div class="reel-screen-crt" aria-hidden="true"></div>
+          </a>
+          <div class="reel-card-body">
+            <h3>Oryizon Organic Moringa</h3>
+            <p>100% Organic Moringa superfood product promo reel. AI presenter performance with professional Hindi voiceover.</p>
+            <div class="reel-card-foot">
+              <span class="reel-stat-pill">INSTAGRAM REEL</span>
+              <a href="https://www.instagram.com/p/DZryD4UPXdZ/" target="_blank" rel="noopener noreferrer" class="reel-cta-btn">
+                Watch Reel
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H9m8 0v8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Reel 2: Oryizon Product Commercial -->
+        <article class="reel-card rv" style="--i:2">
+          <a href="https://www.instagram.com/p/Da762Ufu9gw/" target="_blank" rel="noopener noreferrer" class="reel-screen" aria-label="Watch Oryizon Product Commercial Reel on Instagram">
+            <img src="oryizon_ad_thumb.png" alt="Oryizon Product Commercial Ad Film Reel">
+            <span class="reel-badge-top">REEL #02</span>
+            <span class="reel-badge-type">PRODUCT SPOT</span>
+            <div class="reel-play-overlay">
+              <span class="reel-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </span>
+            </div>
+            <div class="reel-screen-crt" aria-hidden="true"></div>
+          </a>
+          <div class="reel-card-body">
+            <h3>Oryizon Commercial Ad</h3>
+            <p>AI product advertisement film optimized for Instagram engagement, click-through conversions, and brand storytelling.</p>
+            <div class="reel-card-foot">
+              <span class="reel-stat-pill">INSTAGRAM REEL</span>
+              <a href="https://www.instagram.com/p/Da762Ufu9gw/" target="_blank" rel="noopener noreferrer" class="reel-cta-btn">
+                Watch Reel
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H9m8 0v8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Reel 3: Tech & 3D VFX -->
+        <article class="reel-card rv" style="--i:3">
+          <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer" class="reel-screen" aria-label="Watch Lumina X1 Tech Reel on Instagram">
+            <img src="reel_tech_thumb.jpg" alt="Futuristic Tech & 3D VFX Commercial Reel">
+            <span class="reel-badge-top">REEL #03</span>
+            <span class="reel-badge-type">CYBERPUNK VFX</span>
+            <div class="reel-play-overlay">
+              <span class="reel-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </span>
+            </div>
+            <div class="reel-screen-crt" aria-hidden="true"></div>
+          </a>
+          <div class="reel-card-body">
+            <h3>Lumina X1 — Tech Teaser</h3>
+            <p>Cyberpunk neon smartphone ad film. Fluid water physics, dynamic HUD elements, and high-octane 3D visual FX.</p>
+            <div class="reel-card-foot">
+              <span class="reel-stat-pill">3D MOTION / VFX</span>
+              <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer" class="reel-cta-btn">
+                View on Feed
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H9m8 0v8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Reel 4: Food & Dining Sizzle -->
+        <article class="reel-card rv" style="--i:4">
+          <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer" class="reel-screen" aria-label="Watch Spicy Sizzle Commercial Reel on Instagram">
+            <img src="reel_food_thumb.jpg" alt="Restaurant Sizzle Commercial Reel">
+            <span class="reel-badge-top">REEL #04</span>
+            <span class="reel-badge-type">FOOD SIZZLE</span>
+            <div class="reel-play-overlay">
+              <span class="reel-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </span>
+            </div>
+            <div class="reel-screen-crt" aria-hidden="true"></div>
+          </a>
+          <div class="reel-card-body">
+            <h3>Spicy Sizzle Commercial</h3>
+            <p>Appetizing culinary sizzle reel with fiery chili oil splashes and cinematic slow-motion restaurant visuals.</p>
+            <div class="reel-card-foot">
+              <span class="reel-stat-pill">RESTAURANT AD</span>
+              <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer" class="reel-cta-btn">
+                View on Feed
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H9m8 0v8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bottom Banner Callout -->
+      <div class="reels-banner-cta rv">
+        <div>
+          <span class="stage-tag" style="background:var(--ink);color:var(--paper);margin-bottom:var(--s2)">COMMERCIAL PRODUCTION</span>
+          <h3>Need High-Converting AI Video Ads?</h3>
+          <p>I create 15s to 45s vertical video commercials tailored for Instagram Reels, Meta Ads, and YouTube Shorts. Scripting, voiceovers, animation &amp; sound delivered in 48–72 hours.</p>
+        </div>
+        <div class="reels-banner-actions">
+          <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer" class="btn" style="background:var(--ink);color:var(--paper);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="16" height="16" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            Follow @creatoracademy264
+          </a>
+          <a href="#boss" class="btn ghost">Order an Ad Film</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1326,8 +1535,8 @@ body.fx-off #bgc{opacity:.25}
             <span><span class="k">WHATSAPP</span><span class="v">+91 00000 00000</span></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H9m8 0v8"/></svg>
           </a>
-          <a href="#top">
-            <span><span class="k">INSTAGRAM · POSTERS &amp; REELS</span><span class="v">@rajnesh.builds</span></span>
+          <a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer">
+            <span><span class="k">INSTAGRAM · ADS &amp; REELS</span><span class="v">@creatoracademy264</span></span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H9m8 0v8"/></svg>
           </a>
           <a href="#top">
@@ -1406,7 +1615,9 @@ body.fx-off #bgc{opacity:.25}
       <h2>Rajnesh Upadhyay<br>Arcade edition, 2026</h2>
       <ul class="foot-links">
         <li><a href="#work">Projects</a></li>
+        <li><a href="#reels">Reels &amp; Ads</a></li>
         <li><a href="#powers">Services</a></li>
+        <li><a href="https://www.instagram.com/creatoracademy264/reels/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         <li><a href="mailto:hello@rajnesh.dev">Email</a></li>
         <li><a href="#top">Back to top ↑</a></li>
       </ul>
